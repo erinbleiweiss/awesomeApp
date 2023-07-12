@@ -45,3 +45,5 @@ func (app *AppHandler) getUsers(w http.ResponseWriter, r *http.Request) {
 
 	JSONResponse(w, users)
 }
+
+// TODO: Implement Update/Delete methods. They are not implemented here for the sake of brevity

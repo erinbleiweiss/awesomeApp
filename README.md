@@ -9,6 +9,8 @@ username: admin
 password: admin
 ```
 
+API Docs can be viewed at http://localhost:8888/docs/
+
 # Run
 ## Using Docker Compose
 0. Prerequisites: Install Docker and Docker Compose

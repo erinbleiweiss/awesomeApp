@@ -31,6 +31,8 @@ func CreateRouter(db *sql.DB) *mux.Router {
 	// Commented-out line below contains example for adding new routes for v2 breaking changes
 	// AddRoutesV2(router.PathPrefix("/v2").Subrouter(), db)
 
+	router.PathPrefix("/docs/").Handler(http.StripPrefix("/docs", http.FileServer(http.Dir("docs"))))
+
 	return router
 }
 
