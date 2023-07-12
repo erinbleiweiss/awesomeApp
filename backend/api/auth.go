@@ -19,11 +19,21 @@ func (app *AppHandler) register(w http.ResponseWriter, r *http.Request) {
 	}
 	defer r.Body.Close()
 
+	if newUser.FirstName == "" ||
+		newUser.LastName == "" ||
+		newUser.Username == "" ||
+		newUser.Email == "" ||
+		newUser.Password == "" {
+		ErrorResponse(w, "Fields cannot be blank", http.StatusBadRequest)
+		return
+	}
+
 	// TODO: Server-side field validation, including valid email format
 	// TODO: Ideally, password requirements should be enforced by a separate validator function
 	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(newUser.Password), 8)
 	if err != nil {
 		ErrorResponse(w, "Invalid password", http.StatusBadRequest)
+		return
 	}
 	newUser.Password = string(hashedPassword)
 
