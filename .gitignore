@@ -1,3 +1,4 @@
 .DS_STORE
 .idea/*
 frontend/node_modules/*
+awesomeApp.sqlite3
